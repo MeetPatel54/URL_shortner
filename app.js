@@ -1,4 +1,5 @@
 // Import required modules
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const ShortUniqueId = require("short-unique-id");
@@ -9,7 +10,7 @@ const app = express();
 const uid = new ShortUniqueId({ length: 6 });
 
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/urlShortener", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
